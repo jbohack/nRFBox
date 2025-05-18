@@ -6,12 +6,14 @@
 #include <EEPROM.h> // Include EEPROM library
 #include <Arduino.h> 
 #include "scanner.h"
+#include "../include/pindefs.h"
 
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
 extern Adafruit_NeoPixel pixels;
 
-#define CE  5
-#define CSN 17
+// Radio pins
+#define CE  RADIO_CE_PIN_1
+#define CSN RADIO_CSN_PIN_1
 
 #define CHANNELS  64
 int channel[CHANNELS];

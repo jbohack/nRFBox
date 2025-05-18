@@ -27,16 +27,17 @@
 #include "wifiscan.h"
 #include "blackout.h"
 #include "flipper.h"
+#include "../include/pindefs.h"
 
+// Radio pins
+#define CE_PIN_A  RADIO_CE_PIN_1
+#define CSN_PIN_A RADIO_CSN_PIN_1
 
-#define CE_PIN_A  5
-#define CSN_PIN_A 17
+#define CE_PIN_B  RADIO_CE_PIN_2
+#define CSN_PIN_B RADIO_CSN_PIN_2
 
-#define CE_PIN_B  16
-#define CSN_PIN_B 4
-
-#define CE_PIN_C  15
-#define CSN_PIN_C 2
+#define CE_PIN_C  RADIO_CE_PIN_3
+#define CSN_PIN_C RADIO_CSN_PIN_3
 
 RF24 RadioA(CE_PIN_A, CSN_PIN_A);
 RF24 RadioB(CE_PIN_B, CSN_PIN_B);
@@ -45,7 +46,8 @@ RF24 RadioC(CE_PIN_C, CSN_PIN_C);
 //U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0); // [full framebuffer, size = 1024 bytes]
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-Adafruit_NeoPixel pixels(1, 14, NEO_GRB + NEO_KHZ800);
+// NeoPixel initialization with pin from pindefs.h
+Adafruit_NeoPixel pixels(1, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 extern uint8_t oledBrightness;
 
@@ -85,11 +87,12 @@ char menu_items [NUM_ITEMS] [MAX_ITEM_LENGTH] = {
  };
  
 
-#define BUTTON_UP_PIN 26 
-#define BUTTON_SELECT_PIN 32
-#define BUTTON_DOWN_PIN 33 
+// Button pins from pindefs.h
+#define BUTTON_UP_PIN    BUTTON_PIN_UP
+#define BUTTON_SELECT_PIN BUTTON_PIN_CENTER
+#define BUTTON_DOWN_PIN  BUTTON_PIN_DOWN
 
-
+// Button state variables
 int button_up_clicked = 0; 
 int button_select_clicked = 0; 
 int button_down_clicked = 0; 
@@ -152,10 +155,10 @@ void setup() {
   u8g2.print("by CiferTech");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.1");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.2");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.1");
+  u8g2.print("v2.6.2");
   
   u8g2.sendBuffer(); 
   delay(3000);

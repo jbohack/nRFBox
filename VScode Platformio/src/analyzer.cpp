@@ -22,8 +22,10 @@ extern Adafruit_NeoPixel pixels;
 #define N 128
 uint8_t values[N];
 
-#define CE  5
-#define CSN 17
+#include "../include/pindefs.h"
+
+#define CE  RADIO_CE_PIN_1
+#define CSN RADIO_CSN_PIN_1
 
 #define CHANNELS  64
 int CHannel[CHANNELS];

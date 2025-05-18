@@ -11,14 +11,9 @@
 #include <BLEAdvertisedDevice.h>
 #include "blescan.h"
 #include "neopixel.h"
+#include "../include/pindefs.h"
 
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
-
-#define BUTTON_PIN_UP     26
-#define BUTTON_PIN_DOWN   33
-#define BUTTON_PIN_CENTER 32  // Exit
-#define BUTTON_PIN_LEFT   25  // Back
-#define BUTTON_PIN_RIGHT  27  // Select
 
 static int selectedIndex = 0;
 static int displayStartIndex = 0;

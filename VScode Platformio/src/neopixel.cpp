@@ -6,6 +6,7 @@
 #include "neopixel.h"
 #include "setting.h"
 #include <EEPROM.h>
+#include "../include/pindefs.h"
 
 extern Adafruit_NeoPixel pixels;
 

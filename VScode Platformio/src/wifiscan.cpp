@@ -5,13 +5,14 @@
 
 #include <Arduino.h> 
 #include "wifiscan.h"
+#include "../include/pindefs.h"
 
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
 
-#define BTN_PIN_UP 26
-#define BTN_PIN_DOWN 33
-#define BTN_PIN_SELECT 27
-#define BTN_PIN_BACK 25
+#define BTN_PIN_UP BUTTON_PIN_UP
+#define BTN_PIN_DOWN BUTTON_PIN_DOWN
+#define BTN_PIN_SELECT BUTTON_PIN_RIGHT
+#define BTN_PIN_BACK BUTTON_PIN_LEFT
 
 int currentIndex = 0;
 int listStartIndex = 0;

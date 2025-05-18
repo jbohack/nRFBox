@@ -6,20 +6,23 @@
 #include <Arduino.h> 
 #include "jammer.h"
 
-#define BT1 33  // channels
-#define BT2 26  // data rate
-#define BT3 27  // jamming
-#define BT4 25  // PA level
+#include "../include/pindefs.h"
 
+// Button pins
+#define BT1 BUTTON_PIN_DOWN  // channels
+#define BT2 BUTTON_PIN_UP    // jamming
+#define BT3 BUTTON_PIN_RIGHT // data rate
+#define BT4 BUTTON_PIN_LEFT  // PA level
 
-#define CE_A  5
-#define CSN_A 17
+// Radio pins
+#define CE_A  RADIO_CE_PIN_1
+#define CSN_A RADIO_CSN_PIN_1
 
-#define CE_B  16
-#define CSN_B 4
+#define CE_B  RADIO_CE_PIN_2
+#define CSN_B RADIO_CSN_PIN_2
 
-#define CE_C  15
-#define CSN_C 2
+#define CE_C  RADIO_CE_PIN_3
+#define CSN_C RADIO_CSN_PIN_3
 
 RF24 radioA(CE_A, CSN_A, 16000000);
 RF24 radioB(CE_B, CSN_B, 16000000);

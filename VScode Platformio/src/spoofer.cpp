@@ -12,11 +12,13 @@ extern Adafruit_NeoPixel pixels;
 BLEAdvertising *pAdvertising;  
 std::string devices_uuid = "00003082-0000-1000-9000-00805f9b34fb";
 
-const int deviceTypeNextPin = 27; 
-const int deviceTypePrevPin = 25; 
-const int advTypeNextPin = 33;    
-//const int advTypePrevPin = 27;    
-const int advControlPin = 26;     
+#include "../include/pindefs.h"
+
+const int deviceTypeNextPin = BUTTON_PIN_RIGHT; 
+const int deviceTypePrevPin = BUTTON_PIN_LEFT; 
+const int advTypeNextPin = BUTTON_PIN_DOWN;    
+//const int advTypePrevPin = BUTTON_PIN_RIGHT;    
+const int advControlPin = BUTTON_PIN_UP;     
 
 uint32_t delayMillisecond = 1000;
 unsigned long lastDebounceTimeNext = 0;
