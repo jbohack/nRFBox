@@ -8,10 +8,10 @@
 
 
 <!-- Badges -->
-<a href="https://github.com/jbohack/nyanbox" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=nyanbox&message=jbohack&color=purple&logo=github" alt="nyanbox - jbohack"></a>
+<a href="https://github.com/jbohack/nyanBOX" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=nyanBOX&message=jbohack&color=purple&logo=github" alt="nyanBOX - jbohack"></a>
 <a href="https://github.com/cifertech/nrfbox" title="Original Project"><img src="https://img.shields.io/badge/original%20project-CiferTech%20nRFBox-blue" alt="Original Project"></a>
-<a href="https://github.com/jbohack/nyanbox"><img src="https://img.shields.io/github/stars/jbohack/nyanbox?style=social" alt="stars - nyanbox"></a>
-<a href="https://github.com/jbohack/nyanbox"><img src="https://img.shields.io/github/forks/jbohack/nyanbox?style=social" alt="forks - nyanbox"></a>
+<a href="https://github.com/jbohack/nyanBOX"><img src="https://img.shields.io/github/stars/jbohack/nyanBOX?style=social" alt="stars - nyanBOX"></a>
+<a href="https://github.com/jbohack/nyanBOX"><img src="https://img.shields.io/github/forks/jbohack/nyanBOX?style=social" alt="forks - nyanBOX"></a>
 
    
 <h4>
@@ -210,7 +210,7 @@ Distributed under the MIT License. See LICENSE.txt for more information.
 CiferTech - [@twitter](https://twitter.com/techcifer) - CiferTech@gmail.com
 
 ### Project Links
-- nyanBOX Repository: [https://github.com/jbohack/nyanbox](https://github.com/jbohack/nyanbox)
+- nyanBOX Repository: [https://github.com/jbohack/nyanBOX](https://github.com/jbohack/nyanBOX)
 - Original nRFBOX Project: [https://github.com/cifertech/nrfbox](https://github.com/cifertech/nrfbox)
 
 <div>&nbsp;</div>

@@ -1,6 +1,6 @@
 /* ____________________________
    This software is licensed under the MIT License:
-   https://github.com/jbohack/nyanbox
+   https://github.com/jbohack/nyanBOX
    ________________________________________
 */
 
