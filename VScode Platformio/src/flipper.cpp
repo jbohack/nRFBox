@@ -10,8 +10,8 @@
 #include <BLEScan.h>
 #include <BLEAdvertisedDevice.h>
 #include <Adafruit_NeoPixel.h>
-#include "flipper.h"
-#include "neopixel.h"
+#include "../include/flipper.h"
+#include "../include/neopixel.h"
 #include "../include/pindefs.h"
 
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;

@@ -3,7 +3,7 @@
    https://github.com/jbohack/nyanBOX
    ________________________________________ */
 
-#include "blejammer.h"
+#include "../include/blejammer.h"
 #include "../include/pindefs.h"
 
 #include <Arduino.h>

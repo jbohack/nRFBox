@@ -3,8 +3,8 @@
    https://github.com/jbohack/nyanBOX
    ________________________________________ */
 
-#include "deauth.h"
-#include "pindefs.h"
+#include "../include/deauth.h"
+#include "../include/pindefs.h"
 #include <stdint.h>
 #include <U8g2lib.h>
 

@@ -13,21 +13,21 @@
 #include <Wire.h>
 #endif
 
-#include "icon.h"
-#include "neopixel.h"
-#include "setting.h"
+#include "../include/icon.h"
+#include "../include/neopixel.h"
+#include "../include/setting.h"
 
-#include "scanner.h"
-#include "analyzer.h"
-#include "jammer.h"
-#include "blejammer.h"
-#include "spoofer.h"
-#include "sourapple.h"
-#include "blescan.h"
-#include "wifiscan.h"
-#include "blackout.h"
-#include "flipper.h"
-#include "deauth.h"
+#include "../include/scanner.h"
+#include "../include/analyzer.h"
+#include "../include/jammer.h"
+#include "../include/blejammer.h"
+#include "../include/spoofer.h"
+#include "../include/sourapple.h"
+#include "../include/blescan.h"
+#include "../include/wifiscan.h"
+#include "../include/blackout.h"
+#include "../include/flipper.h"
+#include "../include/deauth.h"
 #include "../include/pindefs.h"
 
 // Radio pins
@@ -167,10 +167,10 @@ void setup() {
   u8g2.print("by jbohack & zr_crackiin");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.5");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.6");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.5");
+  u8g2.print("v2.6.6");
   
   u8g2.sendBuffer(); 
   delay(3000);

@@ -4,8 +4,8 @@
    ________________________________________ */
 
 #include <Arduino.h>
-#include "blackout.h"
-#include "icon.h"
+#include "../include/blackout.h"
+#include "../include/icon.h"
 #include "../include/pindefs.h"
 
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;

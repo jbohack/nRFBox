@@ -3,8 +3,8 @@
    https://github.com/jbohack/nyanBOX
    ________________________________________ */
    
-#include "neopixel.h"
-#include "setting.h"
+#include "../include/neopixel.h"
+#include "../include/setting.h"
 #include <EEPROM.h>
 #include "../include/pindefs.h"
 
