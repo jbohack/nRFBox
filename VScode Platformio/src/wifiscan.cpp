@@ -25,6 +25,12 @@ unsigned long lastButtonPress = 0;
 unsigned long debounceTime = 200;
 
 void wifiscanSetup() {
+  currentIndex = 0;
+  listStartIndex = 0;
+  isDetailView = false;
+  isScanComplete = false;
+  lastButtonPress = 0;
+  
   Serial.begin(115200);
   u8g2.setFont(u8g2_font_6x10_tr);
   

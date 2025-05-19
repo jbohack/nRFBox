@@ -167,10 +167,10 @@ void setup() {
   u8g2.print("by jbohack & zr_crackiin");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.4");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.5");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.4");
+  u8g2.print("v2.6.5");
   
   u8g2.sendBuffer(); 
   delay(3000);
