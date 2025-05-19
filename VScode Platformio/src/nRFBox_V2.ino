@@ -27,6 +27,7 @@
 #include "wifiscan.h"
 #include "blackout.h"
 #include "flipper.h"
+#include "deauth.h"
 #include "../include/pindefs.h"
 
 // Radio pins
@@ -52,23 +53,24 @@ Adafruit_NeoPixel pixels(1, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
 extern uint8_t oledBrightness;
 
 
-const unsigned char* bitmap_icons[12] = {
-  bitmap_icon_scanner,
-  bitmap_icon_analyzer,
-  bitmap_icon_jammer,
-  bitmap_icon_kill,
-  bitmap_icon_ble_jammer,
-  bitmap_icon_spoofer,
-  bitmap_icon_apple,
-  bitmap_icon_ble,
-  bitmap_icon_ble,
-  bitmap_icon_wifi,
-  bitmap_icon_about,
-  bitmap_icon_setting
+const unsigned char* bitmap_icons[13] = {
+  bitmap_icon_scanner, // Scanner
+  bitmap_icon_analyzer, // Analyzer
+  bitmap_icon_jammer, // Jammer
+  bitmap_icon_kill, // Proto Kill
+  bitmap_icon_ble_jammer, // BLE Jammer
+  bitmap_icon_spoofer, // Spoofer
+  bitmap_icon_apple, // Sour Apple
+  bitmap_icon_ble, // BLE Scan
+  bitmap_icon_ble, // Flipper Scan
+  bitmap_icon_wifi, // WiFi Scan
+  bitmap_icon_wifi, // WiFi Deauther
+  bitmap_icon_about, // About
+  bitmap_icon_setting // Setting
 };
 
 
-const int NUM_ITEMS = 12;
+const int NUM_ITEMS = 13;
 const int MAX_ITEM_LENGTH = 20; 
 
 char menu_items [NUM_ITEMS] [MAX_ITEM_LENGTH] = {  
@@ -82,6 +84,7 @@ char menu_items [NUM_ITEMS] [MAX_ITEM_LENGTH] = {
   { "BLE Scan" },
   { "Flipper Scan" },
   { "WiFi Scan" },
+  { "WiFi Deauther" },
   { "About" },
   { "Setting" }
  };
@@ -155,10 +158,10 @@ void setup() {
   u8g2.print("by CiferTech");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.2");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.3");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.2");
+  u8g2.print("v2.6.3");
   
   u8g2.sendBuffer(); 
   delay(3000);
@@ -211,9 +214,9 @@ void loop() {
      button_select_clicked = 1; 
 
 
-if (current_screen == 0 && item_selected == 11) {
+if (current_screen == 0 && item_selected == 12) {
   settingSetup();
-    while (item_selected == 11) {
+    while (item_selected == 12) {
         if (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
             if (callAbout) {
                 settingLoop();
@@ -235,7 +238,29 @@ if (current_screen == 0 && item_selected == 11) {
 
 
 if (current_screen == 0 && item_selected == 10) {
+    deauthSetup();
     while (item_selected == 10) {
+        if (digitalRead(BUTTON_SELECT_PIN) == HIGH) { 
+            deauthLoop();     
+            if (callAbout) {                
+                callAbout = false;  // Toggle the state to not call about()
+            } else {
+                break;  // Toggle the state to break the loop
+                callAbout = true;  // Reset the state for the next cycle
+            }
+
+            while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
+                // Wait for the button to be released
+                if (callAbout = true){
+                  break;
+                }
+            }
+        }
+    }
+}
+
+if (current_screen == 0 && item_selected == 11) {
+    while (item_selected == 11) {
         if (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
             if (callAbout) {
                 about();
