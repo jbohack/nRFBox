@@ -1,3 +1,9 @@
+/* ____________________________
+   This software is licensed under the MIT License:
+   https://github.com/jbohack/nyanbox
+   ________________________________________
+*/
+
 #ifndef DEAUTH_H
 #define DEAUTH_H
 

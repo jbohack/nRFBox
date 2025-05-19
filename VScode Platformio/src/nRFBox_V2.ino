@@ -1,6 +1,6 @@
 /* ____________________________
    This software is licensed under the MIT License:
-   https://github.com/cifertech/nrfbox
+   https://github.com/jbohack/nyanbox
    ________________________________________ */
 
 #include <Arduino.h>
@@ -110,10 +110,19 @@ int current_screen = 0;
 
 void about() {
   u8g2.clearBuffer();
+
+  u8g2.setFont(u8g2_font_ncenB14_tr);
+  int16_t titleWidth = u8g2.getUTF8Width("nyan-BOX");
+  u8g2.setCursor((128 - titleWidth) / 2, 20);
+  u8g2.print("nyan-BOX");
+  
   u8g2.setFont(u8g2_font_6x10_tf);
-  u8g2.drawStr(7, 15, "CiferTech@gmail.com");
-  u8g2.drawStr(12, 35, "GitHub/cifertech");
-  u8g2.drawStr(7, 55, "instagram/cifertech");
+  const char* discordText = "jbohack & zr_crackiin";
+  int16_t discordWidth = u8g2.getUTF8Width(discordText);
+  u8g2.setCursor((128 - discordWidth) / 2, 40);
+  u8g2.print(discordText);
+  u8g2.drawStr(7, 60, "defcon.lullaby.cafe");
+  
   u8g2.sendBuffer();
 }
 
@@ -146,22 +155,22 @@ void setup() {
   u8g2.clearBuffer();
 
   u8g2.setFont(u8g2_font_ncenB14_tr); 
-  int16_t nameWidth = u8g2.getUTF8Width("nRF-BOX"); 
+  int16_t nameWidth = u8g2.getUTF8Width("nyan-BOX"); 
   int16_t nameX = (128 - nameWidth) / 2;            
   u8g2.setCursor(nameX, 25);                      
-  u8g2.print("nRF-BOX");
+  u8g2.print("nyan-BOX");
 
   u8g2.setFont(u8g2_font_ncenB08_tr); 
-  int16_t creditWidth = u8g2.getUTF8Width("by CiferTech");
+  int16_t creditWidth = u8g2.getUTF8Width("by jbohack & zr_crackiin");
   int16_t creditX = (106 - creditWidth) / 2;
   u8g2.setCursor(creditX, 40);
-  u8g2.print("by CiferTech");
+  u8g2.print("by jbohack & zr_crackiin");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.3");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.4");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.3");
+  u8g2.print("v2.6.4");
   
   u8g2.sendBuffer(); 
   delay(3000);

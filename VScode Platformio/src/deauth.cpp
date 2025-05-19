@@ -1,3 +1,8 @@
+/* ____________________________
+   This software is licensed under the MIT License:
+   https://github.com/jbohack/nyanbox
+   ________________________________________ */
+
 #include "deauth.h"
 #include "pindefs.h"
 #include <stdint.h>

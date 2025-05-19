@@ -1,6 +1,6 @@
 /* ____________________________
    This software is licensed under the MIT License:
-   https://github.com/cifertech/nrfbox
+   https://github.com/jbohack/nyanbox
    ________________________________________ */
 
 #ifndef flipper_H
