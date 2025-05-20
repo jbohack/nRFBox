@@ -167,20 +167,20 @@ void setup() {
   u8g2.print("by jbohack & zr_crackiin");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.6.8");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.6.9");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.6.8");
+  u8g2.print("v2.6.9");
   
   u8g2.sendBuffer(); 
-  delay(3000);
+  delay(1500);
 
   u8g2.clearBuffer();
 
   u8g2.drawXBMP(0, 0, 128, 64, logo_nyanbox);
 
   u8g2.sendBuffer(); 
-  delay(250);   
+  delay(1000);   
 
   pinMode(BUTTON_UP_PIN, INPUT_PULLUP); 
   pinMode(BUTTON_SELECT_PIN, INPUT_PULLUP); 
