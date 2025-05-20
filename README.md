@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://user-images.githubusercontent.com/62047147/195847997-97553030-3b79-4643-9f2c-1f04bba6b989.png" alt="logo" width="100" height="auto" />
+  <img src="https://github.com/user-attachments/assets/0eba90bc-2ff5-40df-88a1-92e23396d1d3" alt="logo" width="100" height="auto" />
   
   <h1> nyanBOX </h1>
   <p> All-in-One Gadget for BLE and 2.4GHz Networks </p>
