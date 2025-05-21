@@ -124,6 +124,7 @@ nyanBOX is a wireless toolkit designed to explore, analyze, and interact with va
 - **Flipper Scan**: Detects nearby Flipper Zero devices.
 - **WiFi Scan**: Detects nearby WiFi access points.
 - **WiFi Deauther**: Deauthenticates 2.4GHz WiFi devices to disrupt their communication.
+- **Beacon Spam**: Broadcasts multiple fake WiFi networks to test client behavior/network scanning tools.
 
 **Hardware:**
 - ESP32 Wroom32U
