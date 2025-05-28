@@ -121,10 +121,11 @@ nyanBOX is a wireless toolkit designed to explore, analyze, and interact with va
 - **BLE Spoofer**: Spoofs BLE devices to simulate various BLE signals for testing and research.
 - **Sour Apple**: A specialized attack for testing security measures against specific wireless vulnerabilities.
 - **BLE Scan**: Detects nearby BLE devices.
+- **BLE Spammer**: Broadcasts BLE advertisement packets to test device behavior/network scanning tools.
 - **Flipper Scan**: Detects nearby Flipper Zero devices.
 - **WiFi Scan**: Detects nearby WiFi access points.
 - **WiFi Deauther**: Deauthenticates 2.4GHz WiFi devices to disrupt their communication.
-- **Beacon Spam**: Broadcasts multiple fake WiFi networks to test client behavior/network scanning tools.
+- **Beacon Spam**: Broadcasts multiple fake WiFi networks to test device behavior/network scanning tools.
 
 **Hardware:**
 - ESP32 Wroom32U
