@@ -43,6 +43,9 @@ bool isDeauthing = false;
 unsigned long lastStatusUpdate = 0;
 const unsigned long statusUpdateInterval = 250;
 
+unsigned long lastScanTime = 0;
+const unsigned long scanInterval = 30000;
+
 void printMAC(const uint8_t *mac) {
     for (int i = 0; i < 6; i++) {
         if (i > 0 && DEBUG) Serial.print(":");
@@ -90,13 +93,11 @@ void performWiFiScan() {
 
     ap_count = 0;
     for (int i = 0; i < n && ap_count < MAX_APS; i++) {
-
         if (WiFi.SSID(i).length() == 0) continue; // Skip hidden networks
         
         memcpy(ap_list[ap_count].bssid, WiFi.BSSID(i), 6);
         ap_list[ap_count].channel = WiFi.channel(i);
         ap_list[ap_count].rssi = WiFi.RSSI(i);
-
         ap_count++;
     }
 
@@ -111,10 +112,17 @@ void deauthSetup() {
     delay(1000);
 
     performWiFiScan();
+    lastScanTime = millis();
 }
 
 void deauthLoop() {
     unsigned long now = millis();
+
+    if (now - lastScanTime >= scanInterval) {
+        lastScanTime = now;
+        performWiFiScan();
+        currentAP = 0;
+    }
 
     if (now - lastStatusUpdate >= statusUpdateInterval) {
         lastStatusUpdate = now;
