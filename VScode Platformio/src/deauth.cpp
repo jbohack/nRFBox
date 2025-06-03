@@ -46,6 +46,23 @@ const unsigned long statusUpdateInterval = 250;
 unsigned long lastScanTime = 0;
 const unsigned long scanInterval = 30000;
 
+// Modify to whitelist network SSIDs
+const char* ssidWhitelist[] = {
+    "whitelistExample1",
+    "whitelistExample2"
+};
+
+const int whitelistCount = sizeof(ssidWhitelist) / sizeof(ssidWhitelist[0]);
+
+bool isWhitelistedSSID(const String& ssid) {
+    for (int i = 0; i < whitelistCount; i++) {
+        if (ssid.equals(ssidWhitelist[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void printMAC(const uint8_t *mac) {
     for (int i = 0; i < 6; i++) {
         if (i > 0 && DEBUG) Serial.print(":");
@@ -94,6 +111,7 @@ void performWiFiScan() {
     ap_count = 0;
     for (int i = 0; i < n && ap_count < MAX_APS; i++) {
         if (WiFi.SSID(i).length() == 0) continue; // Skip hidden networks
+        if (isWhitelistedSSID(WiFi.SSID(i))) continue; // Skip whitelisted networks
         
         memcpy(ap_list[ap_count].bssid, WiFi.BSSID(i), 6);
         ap_list[ap_count].channel = WiFi.channel(i);
