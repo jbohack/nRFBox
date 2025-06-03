@@ -14,8 +14,6 @@
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
     
 bool isBleSpamming = false;
-uint32_t lastFloodTime = 0;
-const uint32_t floodInterval = 20;
 static uint8_t mode = 0; // 0=Custom, 1=Random ASCII, 2=Random Emoji
 
 // BLE advertising parameters (non-connectable)
@@ -96,7 +94,7 @@ static void generateRandomAlphaName(char* buf, uint8_t length) {
     }
     buf[length] = '\0';
 }
-    
+
 static void generateRandomEmojiName(char* buf) {
     uint8_t count = random(minNameLen, maxNameLen + 1);
     uint16_t pos = 0;
@@ -114,7 +112,7 @@ static void generateRandomEmojiName(char* buf) {
     }
     buf[pos] = '\0';
 }
-    
+
 static void generateRandomMixedName(char* buf) {
     uint8_t glyphs = random(minNameLen, maxNameLen + 1);
     uint16_t pos = 0;
@@ -147,7 +145,7 @@ static const char* pickName(char* buf) {
         uint8_t len = random(minNameLen, maxNameLen + 1);
         generateRandomAlphaName(buf, len);
     } else {
-        generateRandomMixedName(buf);
+        generateRandomEmojiName(buf);
     }
     return buf;
 }
@@ -193,20 +191,6 @@ static void advertiseDevice(const char* chosenName) {
     esp_ble_gap_config_adv_data_raw(packet, size);
     free(packet);
     esp_ble_gap_start_advertising(&adv_params);
-    
-    u8g2.clearBuffer();
-    u8g2.setFont(u8g2_font_6x10_tf);
-    u8g2.drawStr(0, 12, "BLE Spam Active");
-    u8g2.setCursor(0, 24);
-    u8g2.print("Mode: ");
-    if (mode == 0) u8g2.print("Custom");
-    else if (mode == 1) u8g2.print("Random");
-    else u8g2.print("Random/Emoji");
-    u8g2.setCursor(0, 48);
-    u8g2.print("< to toggle modes");
-    u8g2.setCursor(0, 60);
-    u8g2.print("Press SEL to exit");
-    u8g2.sendBuffer();
 }
     
 void bleSpamSetup() {
@@ -222,24 +206,46 @@ void bleSpamSetup() {
     esp_ble_gap_register_callback([](esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param_t *param){});
     
     isBleSpamming = true;
-    lastFloodTime = millis() - floodInterval;
 }
     
 void bleSpamLoop() {
     if (!isBleSpamming) return;
     
+    static uint8_t nextIdx = 0;
+    const uint8_t batchSize = 5;
+    char nameBuf[nameBufSize];
+    
     if (digitalRead(BUTTON_PIN_LEFT) == LOW) {
         mode = (mode + 1) % 3;
+        nextIdx = 0;
         delay(200);
     }
     
-    uint32_t now = millis();
-    if (now - lastFloodTime >= floodInterval) {
-        lastFloodTime = now;
-        char nameBuf[nameBufSize];
-        const char* name = pickName(nameBuf);
+    for (uint8_t i = 0; i < batchSize; i++) {
+        const char* name;
+        if (mode == 0 && customNamesCount > 0) {
+            name = customNames[nextIdx++];
+            if (nextIdx >= customNamesCount) nextIdx = 0;
+        } else {
+            name = pickName(nameBuf);
+        }
         advertiseDevice(name);
+        delay(2);
     }
+    
+    u8g2.clearBuffer();
+    u8g2.setFont(u8g2_font_6x10_tf);
+    u8g2.drawStr(0, 12, "BLE Spam Active");
+    u8g2.setCursor(0, 24);
+    u8g2.print("Mode: ");
+    if (mode == 0) u8g2.print("Custom");
+    else if (mode == 1) u8g2.print("Random");
+    else u8g2.print("Random/Emoji");
+    u8g2.setCursor(0, 48);
+    u8g2.print("< to toggle modes");
+    u8g2.setCursor(0, 60);
+    u8g2.print("SEL to stop");
+    u8g2.sendBuffer();
     
     if (digitalRead(BUTTON_PIN_CENTER) == LOW) {
         isBleSpamming = false;
