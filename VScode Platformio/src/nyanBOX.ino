@@ -243,7 +243,7 @@ if (current_screen == 0 && item_selected == 14) {
 
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -264,7 +264,7 @@ if (current_screen == 0 && item_selected == 13) {
 
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -286,7 +286,7 @@ if (current_screen == 0 && item_selected == 13) {
 
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -309,7 +309,7 @@ if (current_screen == 0 && item_selected == 13) {
 
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -333,7 +333,7 @@ if (current_screen == 0 && item_selected == 10) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -359,7 +359,7 @@ if (current_screen == 0 && item_selected == 8) {
 
           while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
               // Wait for the button to be released
-              if (callAbout = true){
+              if (callAbout == true){
                 break;
               }
           }
@@ -386,7 +386,7 @@ if (current_screen == 0 && item_selected == 6) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -410,7 +410,7 @@ if (current_screen == 0 && item_selected == 5) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -434,7 +434,7 @@ if (current_screen == 0 && item_selected == 4) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -458,7 +458,7 @@ if (current_screen == 0 && item_selected == 3) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -482,7 +482,7 @@ if (current_screen == 0 && item_selected == 2) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -506,7 +506,7 @@ if (current_screen == 0 && item_selected == 1) {
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
                 
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
@@ -529,7 +529,7 @@ if (current_screen == 0 && item_selected == 0) {
 
             while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
                 // Wait for the button to be released
-                if (callAbout = true){
+                if (callAbout == true){
                   break;
                 }
             }
