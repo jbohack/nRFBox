@@ -244,18 +244,13 @@ void bleSpamLoop() {
     u8g2.setCursor(0, 48);
     u8g2.print("< to toggle modes");
     u8g2.setCursor(0, 60);
-    u8g2.print("SEL to stop");
+    u8g2.print("SEL to exit");
     u8g2.sendBuffer();
     
     if (digitalRead(BUTTON_PIN_CENTER) == LOW) {
         isBleSpamming = false;
         esp_ble_gap_stop_advertising();
         BLEDevice::deinit();
-        u8g2.clearBuffer();
-        u8g2.setFont(u8g2_font_6x10_tf);
-        u8g2.drawStr(0, 12, "BLE Spam Stopped");
-        u8g2.drawStr(0, 24, "SEL again to exit");
-        u8g2.sendBuffer();
         return;
     }
 }

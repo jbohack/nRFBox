@@ -173,10 +173,10 @@ void setup() {
   u8g2.print("by jbohack & zr_crackiin");
 
   u8g2.setFont(u8g2_font_6x10_tf); 
-  int16_t versionWidth = u8g2.getUTF8Width("v2.7.5");
+  int16_t versionWidth = u8g2.getUTF8Width("v2.7.6");
   int16_t versionX = (128 - versionWidth) / 2;
   u8g2.setCursor(versionX, 60);
-  u8g2.print("v2.7.5");
+  u8g2.print("v2.7.6");
   
   u8g2.sendBuffer(); 
   delay(1500);
@@ -347,23 +347,11 @@ if (current_screen == 0 && item_selected == 9) {
 
 if (current_screen == 0 && item_selected == 8) {
   bleSpamSetup();
-  while (item_selected == 8) {
-      if (digitalRead(BUTTON_SELECT_PIN) == HIGH) { 
-          bleSpamLoop();     
-          if (callAbout) {                
-              callAbout = false;  // Toggle the state to not call about()
-          } else {
-              break;  // Toggle the state to break the loop
-              callAbout = true;  // Reset the state for the next cycle
-          }
-
-          while (digitalRead(BUTTON_SELECT_PIN) == HIGH) {
-              // Wait for the button to be released
-              if (callAbout = true){
-                break;
-              }
-          }
-      }
+  while (isBleSpamming) {
+    bleSpamLoop();
+    while (digitalRead(BUTTON_SELECT_PIN) == LOW) {
+      delay(10);
+    }
   }
 }
 
