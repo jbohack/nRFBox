@@ -14,7 +14,7 @@
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
     
 bool isBleSpamming = false;
-static uint8_t mode = 0; // 0=Custom, 1=Random ASCII, 2=Random Emoji
+static uint8_t mode = 3; // 0=Custom, 1=Random ASCII, 2=Random Emoji, 3=All
 
 // BLE advertising parameters (non-connectable)
 static esp_ble_adv_params_t adv_params = {
@@ -216,18 +216,24 @@ void bleSpamLoop() {
     char nameBuf[nameBufSize];
     
     if (digitalRead(BUTTON_PIN_LEFT) == LOW) {
-        mode = (mode + 1) % 3;
+        mode = (mode + 1) % 4;
         nextIdx = 0;
         delay(200);
     }
     
     for (uint8_t i = 0; i < batchSize; i++) {
         const char* name;
-        if (mode == 0 && customNamesCount > 0) {
+        uint8_t useMode = mode;
+        if (mode == 3) useMode = i % 3;
+
+        if (useMode == 0 && customNamesCount > 0) {
             name = customNames[nextIdx++];
             if (nextIdx >= customNamesCount) nextIdx = 0;
         } else {
+            uint8_t oldMode = mode;
+            mode = useMode;
             name = pickName(nameBuf);
+            mode = oldMode;
         }
         advertiseDevice(name);
         delay(2);
@@ -240,7 +246,8 @@ void bleSpamLoop() {
     u8g2.print("Mode: ");
     if (mode == 0) u8g2.print("Custom");
     else if (mode == 1) u8g2.print("Random");
-    else u8g2.print("Random/Emoji");
+    else if (mode == 2) u8g2.print("Random/Emoji");
+    else u8g2.print("All");
     u8g2.setCursor(0, 48);
     u8g2.print("< to toggle modes");
     u8g2.setCursor(0, 60);
