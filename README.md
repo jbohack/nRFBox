@@ -77,7 +77,7 @@ The device combines the ESP32 Wroom32U, NRF24 modules, an OLED display, and othe
 
 ## 📟 Hardware
 - **Main Controller**: ESP32 Wroom32U
-- **Wireless Modules**: NRF24 GTmini
+- **Wireless Modules**: NRF24 GTmini x3
 - **Display**: 0.96" OLED
 - **Connectivity**: USB-C, UART
 
