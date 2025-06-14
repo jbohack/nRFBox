@@ -28,74 +28,12 @@
 
 nyanBOX is a fork of the original nRFBOX project by CiferTech, now maintained by jbohack & zr_crackiin. This version includes various improvements and new features while maintaining compatibility with the original hardware.
 
-### 📚 Original Project
-- Original nRFBOX by CiferTech: [GitHub](https://github.com/cifertech/nrfbox)
-- Original documentation: [CiferTech](https://cifertech.net/nrfbox-your-all-in-one-gadget-for-ble-and-2-4ghz-networks/)
-
 ### 🆕 What's New in nyanBOX
 - Updated UI with improved display layout
 - Enhanced stability and performance
 - New features and improvements to existing functionality
 - Active maintenance and support
   
-<div>&nbsp;</div>
-
-<h2>🛠 Functionality Status and Reliability</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Status</th>
-      <th>Reliability</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Scanner</strong></td>
-      <td>Stable</td>
-      <td>High</td>
-      <td>Reliably scans the 2.4 GHz band to detect active channels and nearby devices. Occasional misses in high-interference environments.</td>
-    </tr>
-    <tr>
-      <td><strong>Analyzer</strong></td>
-      <td>Stable</td>
-      <td>High</td>
-      <td>Provides useful insights into detected signals, but additional updates are needed for improved accuracy and detailed analysis.</td>
-    </tr>
-    <tr>
-      <td><strong>Jammer</strong></td>
-      <td>Stable</td>
-      <td>High</td>
-      <td>Basic jamming works but effectiveness varies by device type and signal strength. Testing on select channels is recommended.</td>
-    </tr>
-    <tr>
-      <td><strong>BLE Jammer</strong></td>
-      <td>Stable</td>
-      <td>High</td>
-      <td>Disrupts BLE devices inconsistently. Further improvements are needed to ensure stability and effectiveness across BLE variants.</td>
-    </tr>
-    <tr>
-      <td><strong>BLE Spoofer</strong></td>
-      <td>Stable</td>
-      <td>Low</td>
-      <td>Capable of simulating basic BLE signals but has limited compatibility. Best for controlled testing scenarios.</td>
-    </tr>
-    <tr>
-      <td><strong>Sour Apple</strong></td>
-      <td>Stable</td>
-      <td>Low</td>
-      <td>Specialized attack method with limited reliability; effective only under specific conditions. Further tuning is required.</td>
-    </tr>
-  </tbody>
-</table>
-
-- When using **multiple NRF24** modules, the power demands can exceed the capabilities of the onboard power supply or regulator. Running three NRF modules simultaneously may cause instability, leading to intermittent failures or causing the nyanBOX to stop functioning altogether.
-- **Range Limitations**: The jammer is most effective at short range. Beyond a certain distance, the signal weakens, making it harder to consistently disrupt communication.
-- **Device Variability**: Different devices react to jamming signals in varying ways. Some may be more resistant.
-
-<div>&nbsp;</div>
 
 <!-- About the Project -->
 ## :star2: About the Project
@@ -104,7 +42,7 @@ nyanBOX is a wireless toolkit designed to explore, analyze, and interact with va
 
 
 <div align="center"> 
-  <img src="https://github.com/user-attachments/assets/7012353c-2d09-4956-9152-937cf6a7ce18" alt="screenshot" width="Auto" height="Auto" />
+  <img src="https://github.com/user-attachments/assets/4bbf6b7f-f413-4a68-825e-c39e9e3ec596" alt="screenshot" width="650" />
 </div>
 
 <div>&nbsp;</div>
@@ -131,25 +69,6 @@ nyanBOX is a wireless toolkit designed to explore, analyze, and interact with va
 - ESP32 Wroom32U
 - NRF24 GTmini Modules
 - OLED 0.96" Display
-
-<div>&nbsp;</div>
-
-<!-- nRFBOX V2 -->
-## :eyes: nRFBox Versions: Then and Now
-
-<table>
-  <tr>
-    <td style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/b121fe84-c789-409a-85f5-21f6d5854347" alt="nRFBOX V1" style="width: 600px; border: 1px solid #ccc; border-radius: 5px;">
-      <p style="font-style: italic; font-size: 14px; margin-top: 5px;">nRFBox-v1 based on Arduino</p>
-    </td>    
-    <td style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/a044ab5e-346c-415f-b1fb-f65aa04c520a" alt="nRFBOX V2" style="width: 600px; border: 1px solid #ccc; border-radius: 5px;">
-      <p style="font-style: italic; font-size: 14px; margin-top: 5px;">nRFBox-v2 based on ESP32</p>
-    </td>
-  </tr>
-</table>
-
 
 <div>&nbsp;</div>
 
@@ -202,14 +121,11 @@ Distributed under the MIT License. See LICENSE.txt for more information.
 <!-- Contact -->
 ## :handshake: Contact
 
-▶ Support me on Patreon [patreon.com/cifertech](https://www.patreon.com/cifertech)
+▶ Support us on Ko-fi [ko-fi.com/jbohack](https://ko-fi.com/jbohack) & [ko-fi.com/zrcrackiin](https://ko-fi.com/zrcrackiin)
 
 ### Maintainers
 - [jbohack](https://github.com/jbohack)
 - [zr_crackiin](https://github.com/zRCrackiiN)
-
-### Original Author
-CiferTech - [@twitter](https://twitter.com/techcifer) - CiferTech@gmail.com
 
 ### Project Links
 - nyanBOX Repository: [https://github.com/jbohack/nyanBOX](https://github.com/jbohack/nyanBOX)
@@ -229,4 +145,3 @@ CiferTech - [@twitter](https://twitter.com/techcifer) - CiferTech@gmail.com
  - [ESP32-Sour-Apple](https://github.com/RapierXbox/ESP32-Sour-Apple)
 
 **Community Contributors**: Thanks to everyone who helped improve nyanBOX! Your support is much appreciated!
-
